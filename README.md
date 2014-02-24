@@ -1,6 +1,11 @@
 # Pasu
 
+[![Gem Version](https://badge.fury.io/rb/pasu.png)](http://badge.fury.io/rb/pasu) [![Dependency Status](https://gemnasium.com/tbuehlmann/pasu.png)](https://gemnasium.com/tbuehlmann/pasu)
+
 Pasu is a simple HTTP Server for serving (and uploading) Files.
+
+## Requirements
+- Ruby ~> 2.0
 
 ## Installation
 
