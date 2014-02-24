@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'pasu'
+
+runner = Pasu::Runner.new
+runner.run

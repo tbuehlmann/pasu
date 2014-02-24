@@ -1,0 +1,12 @@
+h1 Directory listing
+
+- if settings[:upload]
+  form action=escape_path(@path.relative_path_from(settings[:directory])) method='POST' enctype="multipart/form-data"
+    input type='file' name='file'
+    input type='submit' value='Upload'
+
+ul
+  - @files.each do |file|
+    li class=file.ftype
+      - text = file == @path.parent ? '..' : file.basename
+      a href=escape_path(file.relative_path_from(settings[:directory])) #{Rack::Utils.escape_html(text)}

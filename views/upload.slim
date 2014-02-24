@@ -1,0 +1,4 @@
+- if settings[:upload]
+  form action=escape(path.relative_path_from(settings[:directory])) method='POST'
+    input type='file' name='file'
+    input type='submit' value='Upload'
