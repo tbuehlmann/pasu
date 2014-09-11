@@ -4,7 +4,8 @@ module Pasu
     plugin Cuba::Render
     
     settings[:render][:template_engine] = 'slim'
-    settings[:render][:views] = File.join(__dir__, '..', '..', 'views')
+    dir = File.expand_path(File.dirname(__FILE__))
+    settings[:render][:views] = File.join(dir, '..', '..', 'views')
 
     class << self
       def setup(options = {})
