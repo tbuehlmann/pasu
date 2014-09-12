@@ -5,7 +5,7 @@
 Pasu is a simple HTTP Server for serving (and uploading) Files.
 
 ## Requirements
-- Ruby ~> 2.0
+- Ruby >= 1.9.3
 
 ## Installation
 
