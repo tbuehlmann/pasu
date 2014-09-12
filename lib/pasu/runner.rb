@@ -27,6 +27,10 @@ module Pasu
           options[:recursive] = false
         end
 
+        p.on('--no-dotfiles', "Don't list dotfiles. (Default: false)") do
+          options[:dotfiles] = false
+        end
+
         p.on('-u', '--upload', 'Allow uploading of files. (Default: false)') do
           options[:upload] = true
         end
