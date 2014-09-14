@@ -18,6 +18,7 @@ module Pasu
         {
           directory: Pathname.pwd,
           recursive: true,
+          dotfiles: true,
           upload: false,
           basic_auth: {},
           host: '0.0.0.0',
@@ -117,6 +118,7 @@ module Pasu
       path.children.tap do |files|
         files.select!  { |file| (file.directory? || file.file?) && file.readable? }
         files.sort_by! { |file| [file.ftype, file.basename] }
+        files.reject!  { |file| unallowed_dotfile?(file) }
 
         if settings[:recursive]
           if path != settings[:directory]
@@ -133,15 +135,20 @@ module Pasu
     end
 
     def file
-      @path.file? && @path.readable? && allowed_directory?(@path.parent)
+      @path.file? && @path.readable? && allowed_directory?(@path.parent) && !unallowed_dotfile?(@path)
     end
 
     def allowed_directory?(directory)
       is_descendant = directory.ascend do |ascendant|
+        return false if unallowed_dotfile?(ascendant)
         break(true) if ascendant == settings[:directory]
       end
 
       (settings[:recursive] || directory == settings[:directory]) && is_descendant
+    end
+
+    def unallowed_dotfile?(path)
+      !settings[:dotfiles] && File.basename(path).start_with?('.')
     end
 
     # TODO: wb correct?
