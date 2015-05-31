@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'pasu/cli'
+Pasu::CLI.start

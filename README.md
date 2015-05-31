@@ -2,10 +2,11 @@
 
 [![Gem Version](https://badge.fury.io/rb/pasu.png)](http://badge.fury.io/rb/pasu) [![Dependency Status](https://gemnasium.com/tbuehlmann/pasu.png)](https://gemnasium.com/tbuehlmann/pasu)
 
-Pasu is a simple HTTP Server for serving (and uploading) Files.
+Pasu is a command line interface for serving (and uploading) local files via HTTP.
 
 ## Requirements
-- Ruby >= 1.9.3
+
+Ruby `'~> 2.0'`
 
 ## Installation
 
@@ -31,7 +32,6 @@ $ pasu
 | --basic-auth USER:PW | Only allowing requests with valid user/pw combination provided. | None |
 | -b, --bind HOST | Bind the server to the given host. | 0.0.0.0 |
 | -p, --port PORT | Bind the server to the given port. | 8080 |
-| -s, --server RACK_HANDLER | Use your own rack handler. | Puma |
 | -h, --help | Show help message. |
 
 ## Contributing

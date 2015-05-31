@@ -1,12 +1,20 @@
 h1 Directory listing
 
+= flash[:alert]
+
 - if settings[:upload]
-  form action=escape_path(@path.relative_path_from(settings[:directory])) method='POST' enctype="multipart/form-data"
+  form action="/files#{escape_path(@directory.path)}" method='POST' enctype='multipart/form-data'
     input type='file' name='file'
     input type='submit' value='Upload'
 
 ul
-  - @files.each do |file|
-    li class=file.ftype
-      - text = file == @path.parent ? '..' : file.basename
-      a href=escape_path(file.relative_path_from(settings[:directory])) #{Rack::Utils.escape_html(text)}
+  - unless @directory.root?
+    li class='directory'
+      - if @directory.parent.root?
+        a href="/" ..
+      - else
+        a href="/files#{escape_path(@directory.parent.path)}" ..
+
+  - @directory.each do |child|
+    li class=child.type
+      a href="/files#{escape_path(child.path)}" #{Rack::Utils.escape_html(child.name)}

@@ -1,14 +1,6 @@
-require 'optparse'
-require 'pathname'
-
-require 'cuba'
-require 'cuba/render'
-require 'cuba/send_file'
-require 'puma'
-require 'slim'
+require 'pasu/application'
+require 'pasu/version'
 
 module Pasu
-  require 'pasu/application'
-  require 'pasu/runner'
-  require 'pasu/version'
+  # <3
 end

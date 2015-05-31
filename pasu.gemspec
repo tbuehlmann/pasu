@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'cuba', '~> 3.1'
   spec.add_runtime_dependency 'cuba-sendfile', '0.0.2'
+  spec.add_runtime_dependency 'cuba-flash', '~> 1.0'
   spec.add_runtime_dependency 'slim', '~> 2.0'
   spec.add_runtime_dependency 'tilt', '~> 2.0'
   spec.add_runtime_dependency 'puma', '~> 2.7'
